@@ -1,17 +1,9 @@
 #include<iostream>
 using namespace std;
 int main(){
-    int n;
-    cout << "Enter Size of Array !!";
-    cin >> n;
-    int arr[n];
-    cout << "Enter Elements of Array !!";
-    for(int i = 0 ; i < n ; i++){
-        cin >> arr[i];
-    }
-    int target;
-    cout << "Enter Target Element you want to search !!";
-    cin >> target;
+    int n=8;
+    int arr[n]={1,2,3,4,5,6,7,8};
+    int target=2;
     int flag=0;
     for(int i=0;i<n;i++){
         if(arr[i]==target){

@@ -5,31 +5,29 @@ using namespace std;
 
 int calculate(string s) {
     stack<int> st;
-    int currentNumber = 0;
-    char lastOperator = '+';
+    int curr = 0;
+    char lastop = '+';
     for (int i = 0; i < s.length(); i++) {
         char c = s[i];
-        // Build the current number
         if (isdigit(c)) {
-            currentNumber = currentNumber * 10 + (c - '0');
+            curr = curr * 10 + (c - '0');
         }
-        // If we encounter an operator or reach the end of the string
         if ((!isdigit(c) && c != ' ') || i == s.length() - 1) {
-            if (lastOperator == '+') {
-                st.push(currentNumber);
-            } else if (lastOperator == '-') {
-                st.push(-currentNumber);
-            } else if (lastOperator == '*') {
+            if (lastop == '+') {
+                st.push(curr);
+            } else if (lastop == '-') {
+                st.push(-curr);
+            } else if (lastop == '*') {
                 int top = st.top();
                 st.pop();
-                st.push(top * currentNumber);
-            } else if (lastOperator == '/') {
+                st.push(top * curr);
+            } else if (lastop == '/') {
                 int top = st.top();
                 st.pop();
-                st.push(top / currentNumber);
+                st.push(top / curr);
             }
-            lastOperator = c;
-            currentNumber = 0;
+            lastop = c;
+            curr = 0;
         }
     }
     int result = 0;

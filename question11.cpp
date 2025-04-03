@@ -3,37 +3,34 @@
 using namespace std;
 
 int findKthPositive(const vector<int>& arr, int k) {
-    int left = 0;
-    int right = arr.size();
-    // Perform binary search to find the kth missing positive number
-    while (left < right) {
-        int mid = left + (right - left) / 2;
-        // Calculate the number of missing numbers before arr[mid]
-        if (arr[mid] - (mid + 1) < k) {
-            left = mid + 1;
-        } else {
-            right = mid;
+    int size=arr.size();
+    int curr=1;
+    int miss=0;
+    for(int i=0;i<size;i++){
+        while(curr<arr[i]){
+            miss++;
+            if(miss==k){
+                return curr;
+            }
+            curr++;
         }
+        curr=arr[i]+1;
     }
-    return left + k;
+    while (miss < k) {
+    miss++;
+    if (miss == k) {
+        return curr; 
+    }
+    curr++;
+    }
+    return -1;
 }
 
 int main() {
-    int n, k;
-    cout << "Enter the size of the array: ";
-    cin >> n;
-    vector<int> arr(n);
-
-    cout << "Enter the elements of the array: ";
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-
-    cout << "Enter the value of k: ";
-    cin >> k;
-
+    int n=5, k=2;
+    vector<int> arr={1,4,7,9,12};
     int result = findKthPositive(arr, k);
-    cout << "The " << k << "th missing positive number is: " << result << endl;
+    cout << "The " << k << " missing positive number is: " << result << endl;
 
     return 0;
 }
