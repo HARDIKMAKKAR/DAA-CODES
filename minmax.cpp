@@ -28,7 +28,7 @@ void minmaxfn(vector<int> arr,int i,int j,vector<int> &minmax){
     }
 }
 int main() {
-    vector<int> arr = {12, 3, 5, 7, 19, -1};
+    vector<int> arr = {0,-29,-30,-40,-50};
     vector<int> minmax;
     minmaxfn(arr, 0, arr.size() - 1, minmax);
     cout << "Minimum value: " << minmax[0] << endl;

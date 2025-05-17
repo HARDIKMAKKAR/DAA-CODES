@@ -1,5 +1,6 @@
-
-#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
+#include<algorithm>
 using namespace std;
 const int MAX = 100;
 int parent[MAX];  

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-vector<vector<int>> conventionalMultiplication(const vector<vector<int>>& A, const vector<vector<int>>& B) {
+vector<vector<int>> convMul(const vector<vector<int>>& A, const vector<vector<int>>& B) {
     int n = A.size();
     vector<vector<int>> C(n, vector<int>(n, 0));
     
@@ -24,7 +24,7 @@ vector<vector<int>> addMatrix(const vector<vector<int>>& A, const vector<vector<
     }
     return result;
 }
-vector<vector<int>> subtractMatrix(const vector<vector<int>>& A, const vector<vector<int>>& B) {
+vector<vector<int>> subMat(const vector<vector<int>>& A, const vector<vector<int>>& B) {
     int n = A.size();
     vector<vector<int>> result(n, vector<int>(n, 0));
     for (int i = 0; i < n; i++) {
@@ -34,7 +34,7 @@ vector<vector<int>> subtractMatrix(const vector<vector<int>>& A, const vector<ve
     }
     return result;
 }
-vector<vector<int>> strassenMultiplication(const vector<vector<int>>& A, const vector<vector<int>>& B) {
+vector<vector<int>> strassen(const vector<vector<int>>& A, const vector<vector<int>>& B) {
     int n = A.size();
     
     if (n == 1) {
@@ -61,18 +61,18 @@ vector<vector<int>> strassenMultiplication(const vector<vector<int>>& A, const v
         }
     }
 
-    vector<vector<int>> P1 = strassenMultiplication(addMatrix(A11, A22), addMatrix(B11, B22));
-    vector<vector<int>> P2 = strassenMultiplication(addMatrix(A21, A22), B11);
-    vector<vector<int>> P3 = strassenMultiplication(A11, subtractMatrix(B12, B22));
-    vector<vector<int>> P4 = strassenMultiplication(A22, subtractMatrix(B21, B11));
-    vector<vector<int>> P5 = strassenMultiplication(addMatrix(A11, A12), B22);
-    vector<vector<int>> P6 = strassenMultiplication(subtractMatrix(A21, A11), addMatrix(B11, B12));
-    vector<vector<int>> P7 = strassenMultiplication(subtractMatrix(A12, A22), addMatrix(B21, B22));
+    vector<vector<int>> P1 = strassen(addMatrix(A11, A22), addMatrix(B11, B22));
+    vector<vector<int>> P2 = strassen(addMatrix(A21, A22), B11);
+    vector<vector<int>> P3 = strassen(A11, subMat(B12, B22));
+    vector<vector<int>> P4 = strassen(A22, subMat(B21, B11));
+    vector<vector<int>> P5 = strassen(addMatrix(A11, A12), B22);
+    vector<vector<int>> P6 = strassen(subMat(A21, A11), addMatrix(B11, B12));
+    vector<vector<int>> P7 = strassen(subMat(A12, A22), addMatrix(B21, B22));
 
-    vector<vector<int>> C11 = addMatrix(subtractMatrix(addMatrix(P1, P4), P5), P7);
+    vector<vector<int>> C11 = addMatrix(subMat(addMatrix(P1, P4), P5), P7);
     vector<vector<int>> C12 = addMatrix(P3, P5);
     vector<vector<int>> C21 = addMatrix(P2, P4);
-    vector<vector<int>> C22 = addMatrix(subtractMatrix(addMatrix(P1, P3), P2), P6);
+    vector<vector<int>> C22 = addMatrix(subMat(addMatrix(P1, P3), P2), P6);
 
     vector<vector<int>> C(n, vector<int>(n, 0));
     for (int i = 0; i < mid; i++) {
@@ -97,17 +97,17 @@ void printMatrix(const vector<vector<int>>& matrix) {
 }
 
 int main() {
-    vector<vector<int>> A = {{1, 2}, {3, 4}};
-    vector<vector<int>> B = {{5, 6}, {7, 8}};
+    vector<vector<int>> A = {{6, 5}, {7, 4}};
+    vector<vector<int>> B = {{12, 6}, {9, 8}};
 
     // Strassen's Matrix Multiplication
-    vector<vector<int>> C_strassen = strassenMultiplication(A, B);
+    vector<vector<int>> C_strassen = strassen(A, B);
     cout << "Strassen's Matrix Multiplication Result:" << endl;
     printMatrix(C_strassen);
     cout << endl;
 
     // Conventional Matrix Multiplication
-    vector<vector<int>> C_conventional = conventionalMultiplication(A, B);
+    vector<vector<int>> C_conventional = convMul(A, B);
     cout << "Conventional Matrix Multiplication Result:" << endl;
     printMatrix(C_conventional);
 

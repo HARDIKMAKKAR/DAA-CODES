@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-int findFirstOccurrence(const vector<int>& nums, int target) {
+int findfirst(vector<int>& nums, int target) {
     int low = 0, high = nums.size() - 1, result = -1;
     while (low <= high) {
         int mid = low + (high - low) / 2;
@@ -16,7 +16,7 @@ int findFirstOccurrence(const vector<int>& nums, int target) {
     }
     return result;
 }
-int findLastOccurrence(const vector<int>& nums, int target) {
+int findLast(vector<int>& nums, int target) {
     int low = 0, high = nums.size() - 1, result = -1;
     while (low <= high) {
         int mid = low + (high - low) / 2;
@@ -31,15 +31,15 @@ int findLastOccurrence(const vector<int>& nums, int target) {
     }
     return result;
 }
-int countOccurrences(const vector<int>& nums, int target) {
-    int first = findFirstOccurrence(nums, target);
+int count(vector<int>& nums, int target) {
+    int first = findfirst(nums, target);
     if (first == -1) return 0;
-    int last = findLastOccurrence(nums, target);
+    int last = findLast(nums, target);
     return last - first + 1;
 }
 int main() {
-    vector<int> nums = {1, 2, 2, 3, 3, 3, 4, 5, 6};
-    int target = 3;
-    cout << "Number of occurrences of " << target << " is: " << countOccurrences(nums, target) << endl;
+    vector<int> nums = {5,4,4,4,6,7,8,9};
+    int target = 4;
+    cout << "Number of occurrences of " << target << " is: " << count(nums, target) << endl;
     return 0;
 }
