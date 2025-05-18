@@ -25,7 +25,7 @@ public:
             return rightResult; 
         }
         return -1;
-    }
+    }    
 
     int findPeakElement(vector<int>& nums) {
         int h = nums.size() - 1;

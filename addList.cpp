@@ -17,7 +17,7 @@ void reverseList(ListNode* &head) {
         curr->next = prev;
         prev = curr;
         curr = nextTemp;
-    }
+    }  
     head = prev;
 }
 

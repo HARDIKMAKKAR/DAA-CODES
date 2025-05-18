@@ -22,7 +22,7 @@ int main() {
     int arr[n]={1,2,3,4,5,6,7,8};
     int target=7;
     int result = binarySearch(arr, n, target);
-    if (result != -1) {
+    if (result != -1) {   
         cout << "Target found at index " << result << endl;
     } else {
         cout << "Target not found" << endl;

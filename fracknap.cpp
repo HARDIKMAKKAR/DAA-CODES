@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-class Solution {
+class Solution {   
   public:
     static bool compare(pair<double, int>& p1, pair<double, int>& p2) {
         return p1.first > p2.first;  

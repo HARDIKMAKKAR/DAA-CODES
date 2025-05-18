@@ -20,7 +20,7 @@ void jobSequencing(vector<Job>& jobs) {
     });
 
     // To keep track of free time slots
-    vector<bool> slot(n, false);
+    vector<bool> slot(n, false);  
     // To store the result (scheduled jobs)
     vector<char> result(n, '-');
 

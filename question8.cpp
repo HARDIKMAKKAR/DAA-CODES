@@ -43,3 +43,4 @@ int main() {
     cout << "Number of occurrences of " << target << " is: " << count(nums, target) << endl;
     return 0;
 }
+   

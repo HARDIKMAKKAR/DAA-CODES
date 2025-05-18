@@ -46,7 +46,7 @@ void mergeSort(int arr[], int low, int high) {
     }
 }
 
-int main() {
+int main() {  
     int arr[20], n;
     cout << "Enter the size of the array: ";
     cin >> n;

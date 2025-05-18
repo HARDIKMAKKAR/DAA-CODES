@@ -29,7 +29,7 @@ int calculate(string s) {
             lastop = c;
             curr = 0;
         }
-    }
+    }      
     int result = 0;
     while (!st.empty()) {
         result += st.top();

@@ -46,7 +46,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
-    cout << "enter k";
+    cout << "enter k";   
     cin >> k;
     int targetIndex = n - k;
     int result = quickSelect(arr, 0, n - 1, targetIndex);
