@@ -31,7 +31,7 @@ int main() {
     vector<int> arr = {0,-29,-30,-40,-50};
     vector<int> minmax;
     minmaxfn(arr, 0, arr.size() - 1, minmax);
-    cout << "Minimum value: " << minmax[0] << endl;
+    cout << "Minimum value: " << minmax[0] << endl;   
     cout << "Maximum value: " << minmax[1] << endl;
     return 0;
-}
+}     

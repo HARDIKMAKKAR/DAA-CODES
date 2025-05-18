@@ -10,7 +10,7 @@ long long int findExpoTrad(int n,int pow){
 }
 long long int findExpo(int n,int pow){
     if(pow==0) return 1;
-    if(pow%2==0){
+    if(pow%2==0){   
         int half= findExpo(n,pow/2);
         return half*half;
     }
