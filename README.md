@@ -63,4 +63,4 @@ The repository includes code for the following categories of algorithms:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/HARDIKMAKKAR/DAA-File.git
+   git clone https://github.com/HARDIKMAKKAR/DAA-CODES.git
